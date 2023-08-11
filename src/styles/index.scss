@@ -1,0 +1,18 @@
+@import url("./reset.scss");
+@import url("./global.scss");
+@import url("./typography.scss");
+@import url("./buttons.scss");
+
+body {
+  min-width: calc(100dvw - 7px);
+  min-height: 100dvh;
+  display: flex;
+  background-color: var(--color-grey-4);
+}
+#root{
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}

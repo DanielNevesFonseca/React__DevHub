@@ -1,0 +1,30 @@
+.title1, .title2, .textHeadline, .textParagraph{
+  color: var(--color-grey-0);
+}
+
+.title1,
+.title2 {
+  font-weight: 700;
+}
+
+.title1 {
+  font-size: 1.125rem;
+}
+
+.title2 {
+  font-size: 1rem;
+}
+
+.textHeadline {
+  font-size: 0.75rem;
+  font-weight: 400;
+
+  &.bold {
+    font-size: 700;
+  }
+}
+
+.textParagraph{
+  font-size: 1rem;
+  font-weight: 400;
+}

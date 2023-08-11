@@ -1,0 +1,26 @@
+.registerSection {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  align-items: center;
+  padding: 0 16px;
+  margin: 60px 0;
+}
+
+.titleBox {
+  width: 100%;
+  max-width: 430px;
+  display: flex;
+  gap: 24px;
+  justify-content: space-between;
+  align-items: center;
+
+  button{
+    width: fit-content;
+    padding: 8px 12px;
+  }
+
+  h2{
+    color: var(--color-primary);
+  }
+}

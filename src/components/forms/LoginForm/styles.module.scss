@@ -1,0 +1,27 @@
+.loginForm {
+  max-width: 420px;
+  width: 100%;
+  background-color: var(--color-grey-3);
+  padding: 34px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  border-radius: 4px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+
+    &>h2 {
+      text-align: center;
+    }
+  }
+}
+
+.registerBox {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  align-items: center;
+}

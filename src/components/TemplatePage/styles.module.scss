@@ -1,0 +1,12 @@
+.templatePage {
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+  position: relative;
+  padding-bottom: 70px;
+
+  footer {
+    position: absolute;
+    bottom: 2px;
+  }
+}
