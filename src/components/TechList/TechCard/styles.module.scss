@@ -1,0 +1,81 @@
+.techItem {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-grey-4);
+  justify-content: space-evenly;
+  height: 80px;
+  border-radius: 4px;
+  padding: 0 16px;
+
+
+
+  &>div {
+    display: flex;
+    gap: 16px;
+    justify-content: space-between;
+    align-items: center;
+
+    &>p {
+      color: var(--color-grey-1);
+    }
+
+    div {
+      display: flex;
+      gap: 16px;
+    }
+
+  }
+
+  &:hover {
+    scale: 1.02;
+    box-shadow: 0 0 5px 2px var(--color-grey-1);
+    transition: all ease-in-out .3s;
+  }
+
+  &:has(.editButton:hover) {
+    box-shadow: 0 0 5px 2px var(--color-sucess);
+    p {
+      transition: all ease-in-out .5s;
+      color: var(--color-sucess);
+    }
+  }
+
+  &:has(.deleteButton:hover){
+    box-shadow: 0 0 5px 2px var(--color-fail);
+    p {
+      transition: all ease-in-out .5s;
+      color: var(--color-fail);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.editButton,
+.deleteButton {
+  max-height: fit-content;
+  color: var(--color-white);
+  background-color: var(--color-grey-4);
+  border-radius: 4px;
+  padding: 5px;
+
+  &:hover {
+    background-color: var(--color-grey-3);
+  }
+}
+
+.editButton {
+  &:hover {
+    background-color: var(--color-sucess);
+  }
+}
+
+.deleteButton{
+  &:hover {
+    background-color: var(--color-fail);
+  }
+}

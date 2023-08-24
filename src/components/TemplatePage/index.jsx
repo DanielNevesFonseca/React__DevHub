@@ -2,10 +2,10 @@ import { Footer } from "../Footer";
 import { Header } from "../Header";
 import styles from "./styles.module.scss";
 
-export const TemplatePage = ({ children, logout }) => {
+export const TemplatePage = ({ children }) => {
   return (
     <div className={styles.templatePage}>
-      <Header logout={logout} />
+      <Header />
       {children}
       <Footer />
     </div>

@@ -1,32 +1,33 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { Login } from "../pages/Login";
 import { Register } from "../pages/Register";
 import { Dashboard } from "../pages/Dashboard";
-import { useState } from "react";
-import { toast } from "react-toastify";
-
+import { PrivateRoutes } from "./PrivateRoutes/PrivateRoutes";
+import { ErrorPage } from "../pages/ErrorPage";
+import { PublicRoutes } from "./PublicRoutes/PublicRoutes";
+import { Users } from "../pages/Users/Users";
+import { UsersProvider } from "../providers/UsersContext";
 
 export const MainRoutes = () => {
-  const navigate = useNavigate();
-  const [dataUser, setDataUser] = useState(null);
-
-  const logout = () => {
-    setDataUser(null);
-    toast.success("Voltando para página de login.");
-    localStorage.removeItem("@KenzieHub:userToken");
-    
-    setTimeout(() => {
-      navigate("/");
-    }, 2 * 1000);
-  };
   return (
     <Routes>
-      <Route path="/" element={<Login setDataUser={setDataUser} />} />
-      <Route path="/register" element={<Register />} />
-      <Route
-        path="/dashboard"
-        element={<Dashboard dataUser={dataUser} setDataUser={setDataUser} logout={logout} />}
-      />
+      <Route element={<PublicRoutes />}>
+        <Route path="/" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Route>
+
+      <Route element={<PrivateRoutes />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route
+          path="/users"
+          element={
+            <UsersProvider>
+              <Users />
+            </UsersProvider>
+          }
+        />
+      </Route>
+      <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
 };

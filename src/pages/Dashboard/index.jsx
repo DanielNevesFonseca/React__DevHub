@@ -1,22 +1,43 @@
+import { useContext } from "react";
 import { TemplatePage } from "../../components/TemplatePage";
 import styles from "./styles.module.scss";
-import { RiEmotionSadFill } from "react-icons/ri";
+import { UserContext } from "../../providers/UserContext";
+import { CreateTechModal } from "../../components/modals/CreateTechModal/CreateTechModal";
+import { TechContext } from "../../providers/TechContext";
+import { TechList } from "../../components/TechList/TechList";
+import { EditTechModal } from "../../components/modals/EditTechModal/EditTechModal";
+import { TbUserEdit } from "react-icons/tb";
+import { MdPersonSearch } from "react-icons/md";
+import { EditUserDataModal } from "../../components/modals/EditUserDataModal/EditUserDataModal";
 
-export const Dashboard = ({ dataUser, logout }) => {
+export const Dashboard = () => {
+  const { dataUser, editingDataUser, setEditingDataUser, redirectToUsers } =
+    useContext(UserContext);
+  const { createModalStatus, editModalStatus } = useContext(TechContext);
+
   return (
-    <TemplatePage logout={logout}>
+    <TemplatePage>
       <section className={styles.userDataSection}>
         <h1 className="title1">Olá, {dataUser?.name}!</h1>
-        <p className="textHeadline">{dataUser?.course_module}</p>
+        <div className={styles.userBox}>
+          <p className="textHeadline">{dataUser?.course_module}</p>
+          <button
+            onClick={() => setEditingDataUser(dataUser)}
+            title="Editar Usuário"
+          >
+            <TbUserEdit size={21} />
+          </button>
+        </div>
       </section>
-      <section className={styles.workingMessageSection}>
-        <h1 className="title1">
-          Que pena! Estamos em desenvolvimento... <RiEmotionSadFill size={21} />
-        </h1>
-        <p className="textBody">
-          Nossa aplicação está em desenvolvimento. Em breve teremos novidades!
-        </p>
-      </section>
+      <TechList />
+      <div className={styles.findUserBox}>
+        <button onClick={() => redirectToUsers()} className="buttonDefault">
+          Encontrar outros usuários <MdPersonSearch size={24} />
+        </button>
+      </div>
+      {createModalStatus ? <CreateTechModal /> : null}
+      {editModalStatus ? <EditTechModal /> : null}
+      {editingDataUser ? <EditUserDataModal /> : null}
     </TemplatePage>
   );
 };

@@ -1,0 +1,62 @@
+.modalController {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+  background-color: (rgba(0, 0, 0, 0.498));
+  backdrop-filter: blur(3px);
+  z-index: 1000;
+}
+
+.modalContainer {
+  width: 100%;
+  max-width: 370px;
+  margin: 0 12px;
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    background-color: var(--color-grey-3);
+    padding-bottom: 16px;
+
+    &>div {
+      padding: 0 16px;
+    }
+  }
+}
+
+.headerBox {
+  display: flex;
+  background-color: var(--color-grey-2);
+  padding: 0 16px;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 40px;
+
+  span {
+    color: var(--color-primary);
+  }
+
+  button {
+    max-width: fit-content;
+    max-width: fit-content;
+  }
+}
+
+.inputsBox {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+
+  input {
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+  }
+}

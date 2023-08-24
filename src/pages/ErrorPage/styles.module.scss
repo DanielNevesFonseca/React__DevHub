@@ -1,0 +1,22 @@
+.errorPage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  div {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
+
+    h1 {
+      color: var(--color-primary);
+    }
+
+    svg {
+      color: var(--color-primary);
+    }
+  }
+}

@@ -1,0 +1,68 @@
+.headerSection {
+  border-top: 1px solid var(--color-grey-2);
+  border-bottom: 1px solid var(--color-grey-2);
+  height: 70px;
+  padding: 0 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &>button {
+    border-radius: 4px;
+    padding: 4px;
+    color: var(--color-white);
+    background-color: var(--color-grey-3);
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+
+  &>h1 {
+    color: var(--color-white);
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: calc(((100vw - 1024px) / 2) + 14px);
+    padding-right: calc(((100vw - 1024px) / 2) + 14px);
+  }
+}
+
+.topPageBox {
+  align-self: center;
+  margin-bottom: 24px;
+
+  a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-radius: 4px;
+
+    &:hover {
+      color: var(--color-primary);
+
+    }
+  }
+}
+
+.pageLocationBox {
+  align-self: center;
+  margin-top: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  button {
+    border-radius: 4px;
+    background-color: var(--color-grey-1);
+
+    svg {
+      color: var(--color-white);
+
+    }
+
+    &:hover {
+      background-color: var(--color-primary);
+    }
+  }
+}

@@ -15,6 +15,10 @@
   --font-primary-inter: 'Inter', sans-serif;
 }
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--font-primary-inter);
 }

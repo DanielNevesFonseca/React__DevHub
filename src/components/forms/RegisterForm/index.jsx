@@ -1,19 +1,17 @@
 import { useForm } from "react-hook-form";
 import { Input } from "../Input/Input";
 import styles from "./styles.module.scss";
-import { toast } from "react-toastify";
 import { Select } from "../Select";
 import { InputPassword } from "../InputPassword";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { registerFormSchema } from "./registerFormSchema";
-import { useNavigate } from "react-router-dom";
 import { TextArea } from "../TextArea";
-import { kenzieHubApi } from "../../../services/kenzieHubApi";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { UserContext } from "../../../providers/UserContext";
 
 export const RegisterForm = () => {
-  const [loadingRegisterRequest, setLoadingRegisterRequest] = useState(false);
-  const navigate = useNavigate();
+  const { userRegister } = useContext(UserContext);
+  const [loadingRequest, setLoadingRequest] = useState(false);
 
   const {
     register,
@@ -24,24 +22,7 @@ export const RegisterForm = () => {
   });
 
   const submit = (formData) => {
-    userRegister(formData);
-  };
-
-  const userRegister = async (formData) => {
-    try {
-      setLoadingRegisterRequest(true);
-      await kenzieHubApi.post("/users", formData);
-      toast.success("Cadastro Efetuado! Voltando para login...");
-      setTimeout(() => {
-        navigate("/");
-      }, 3 * 1000);
-    } catch (error) {
-      if (error.response?.data.message === "Email already exists") {
-        toast.error("Email já cadastrado!");
-      }
-    } finally {
-      setLoadingRegisterRequest(false);
-    }
+    userRegister(formData, setLoadingRequest);
   };
 
   return (
@@ -50,7 +31,7 @@ export const RegisterForm = () => {
         <h2 className="title2">Crie sua conta</h2>
         <span className="textHeadline">Rápido e grátis, vamos nessa!</span>
         <Input
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           type="text"
           placeholder="Digite seu nome..."
           label={"Nome"}
@@ -60,7 +41,7 @@ export const RegisterForm = () => {
         />
 
         <Input
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           type="text"
           placeholder="Digite seu e-mail..."
           label={"E-mail"}
@@ -70,7 +51,7 @@ export const RegisterForm = () => {
         />
 
         <InputPassword
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           placeholder="Digite sua senha..."
           label={"Senha"}
           autoComplete="off"
@@ -79,7 +60,7 @@ export const RegisterForm = () => {
         />
 
         <InputPassword
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           placeholder="Confirme sua senha..."
           label={"Confirmar Senha"}
           autoComplete="off"
@@ -87,7 +68,7 @@ export const RegisterForm = () => {
           error={errors.confirm_password}
         />
         <TextArea
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           type="text"
           placeholder="Fale sobre você..."
           label={"Bio"}
@@ -97,7 +78,7 @@ export const RegisterForm = () => {
         />
 
         <Input
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           type="number"
           placeholder="ddd+n° -- ex:21985477856 "
           label={"Contato"}
@@ -107,7 +88,7 @@ export const RegisterForm = () => {
         />
 
         <Select
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           {...register("course_module")}
           label={"Selecionar Módulo"}
           error={errors.contact}
@@ -131,11 +112,11 @@ export const RegisterForm = () => {
         </Select>
 
         <button
-          disabled={loadingRegisterRequest}
+          disabled={loadingRequest}
           className="buttonNegative"
           type="submit"
         >
-          {loadingRegisterRequest ? "Cadastrando..." : "Cadastrar"}
+          {loadingRequest ? "Cadastrando..." : "Cadastrar"}
         </button>
       </form>
     </div>

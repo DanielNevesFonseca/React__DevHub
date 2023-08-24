@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { RegisterForm } from "../../components/forms/RegisterForm";
 import styles from "./styles.module.scss";
-import { toast } from "react-toastify";
 
 export const Register = () => {
   const navigate = useNavigate();
