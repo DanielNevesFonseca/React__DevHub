@@ -18,6 +18,7 @@ export const UsersProvider = ({ children }) => {
         `/users/?perPage=40&page=${page}`
       );
       setUsersList(data);
+      console.log(page);
     } catch (error) {
       toast.error("Houve algum erro!");
     } finally {
@@ -29,14 +30,16 @@ export const UsersProvider = ({ children }) => {
     getUsers();
   }, []);
 
+  useEffect(() => {
+    getUsers();
+  }, [page]);
+
   const plusOnePage = () => {
     setPage(page + 1);
-    getUsers();
   };
 
   const minusOnePage = () => {
     setPage(page - 1);
-    getUsers();
   };
 
   const redirectToDashboard = () => {
