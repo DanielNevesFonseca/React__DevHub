@@ -48,4 +48,8 @@
   display: flex;
   flex-direction: column;
   gap: 22px;
+
+  input:disabled{
+    cursor: not-allowed;
+  }
 }

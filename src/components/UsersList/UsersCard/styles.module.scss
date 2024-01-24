@@ -6,10 +6,10 @@
   gap: 12px;
   max-height: 200px;
   width: 100%;
+  transition: all ease-in-out .3s;
 
   &:hover {
-    box-shadow: 0 0 5px 3px var(--color-primary);
-    transition: all ease-in-out .3s;
+    box-shadow: 0 0 2px 1px var(--color-primary);
     cursor: pointer;
     scale: 1.01;
   }

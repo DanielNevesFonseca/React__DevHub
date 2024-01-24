@@ -4,7 +4,8 @@
   gap: 12px;
 
   &>p {
-    color: var(--color-primary);
+    color: var(--color-fail);
+    font-weight: 600;
   }
 
   input {

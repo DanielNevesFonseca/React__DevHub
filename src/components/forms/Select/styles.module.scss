@@ -17,8 +17,9 @@
     }
   }
 
-  & > p{
-    color: var(--color-primary);
+  &>p {
+    color: var(--color-fail);
+    font-weight: 600;
   }
 
   option {

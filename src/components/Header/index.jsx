@@ -6,7 +6,7 @@ export const Header = () => {
   const {logout} = useContext(UserContext);
   return (
     <header className={styles.headerTemplate}>
-      <h1 className="title1">Kenzie Hub</h1>
+      <h1 className="title1">Dev Hub</h1>
       <button onClick={() => logout()} className="buttonDisabled">
         Sair
       </button>

@@ -5,7 +5,8 @@
   position: relative;
 
   &>p {
-    color: var(--color-primary);
+    color: var(--color-fail);
+    font-weight: 600;
   }
 
   input {

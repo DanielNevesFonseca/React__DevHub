@@ -11,6 +11,7 @@
   @extend .common-styles;
   border-top: 1px solid var(--color-grey-2);
   border-bottom: 1px solid var(--color-grey-2);
+  background-color: var(--color-primary-hover);
 
   @media (min-width: 1024px) {
     padding-left: calc(((100vw - 1024px) / 2) + 14px);
@@ -37,7 +38,7 @@
   justify-content: space-between;
   gap: 16px;
   &>p {
-    color: var(--color-grey-1);
+    color: var(--color-white);
   }
 
   button {
@@ -45,10 +46,10 @@
     border-radius: 4px;
     background-color: var(--color-grey-1);
     color: var(--color-white);
+    transition: all ease-in-out .3s;
 
     &:hover{
       background-color: var(--color-primary);
-      transition: all ease-in-out .3s;
     }
   }
 }

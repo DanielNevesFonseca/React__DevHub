@@ -14,7 +14,7 @@ export const Register = () => {
   return (
     <section className={styles.registerSection}>
       <div className={styles.titleBox}>
-        <h2 className="title1">Kenzie Hub</h2>
+        <h2 className="title1">Dev Hub</h2>
         <button
           onClick={() => redirectToLoginPage()}
           className="buttonDisabled"

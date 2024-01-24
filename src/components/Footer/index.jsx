@@ -10,7 +10,7 @@ export const Footer = () => {
       <span className="textHeadline hidden">
         Desenvolvido por <i>Daniel Neves Fonseca</i>
       </span>
-      <h2 className="title2">Kenzie Hub</h2>
+      <h2 className="title2">Dev Hub</h2>
     </footer>
   );
 };
